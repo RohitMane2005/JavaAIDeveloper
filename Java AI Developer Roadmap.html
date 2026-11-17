@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Java AI Developer Roadmap</title>
+<style>
+:root{--bg:#f7f6f2;--card:#fff;--tx:#1d1d1b;--mut:#6b6a64;--bd:#e3e1d9;--ac:#c4562b;--ok:#2f7d4f;--bar:#e8e6de;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#171716;--card:#222220;--tx:#ecebe5;--mut:#9a988f;--bd:#34332f;--ac:#e8845a;--ok:#5cc084;--bar:#34332f}}
+:root[data-theme="dark"]{--bg:#171716;--card:#222220;--tx:#ecebe5;--mut:#9a988f;--bd:#34332f;--ac:#e8845a;--ok:#5cc084;--bar:#34332f}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:760px;margin:0 auto;padding:16px}
+h1{font-size:1.5rem;margin:8px 0 4px}
+.sub{color:var(--mut);margin:0 0 14px;font-size:.92rem}
+.top{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);padding:10px 0;z-index:5;border-bottom:1px solid var(--bd)}
+.bar{height:10px;background:var(--bar);border-radius:6px;overflow:hidden}
+.bar>i{display:block;height:100%;width:0;background:var(--ac);transition:width .25s}
+.stat{display:flex;justify-content:space-between;align-items:center;font-size:.9rem;margin-bottom:6px;gap:8px}
+button{font:inherit;font-size:.82rem;background:var(--card);color:var(--tx);border:1px solid var(--bd);border-radius:6px;padding:4px 10px;cursor:pointer}
+details{background:var(--card);border:1px solid var(--bd);border-radius:10px;margin:12px 0;overflow:hidden}
+summary{cursor:pointer;padding:12px 14px;font-weight:600;display:flex;justify-content:space-between;gap:10px;align-items:center}
+summary span{font-weight:500;color:var(--mut);font-size:.85rem;white-space:nowrap}
+details.done summary span{color:var(--ok)}
+.sec{padding:0 14px 8px}
+h3{font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;color:var(--mut);margin:12px 0 4px}
+label{display:flex;gap:10px;align-items:flex-start;padding:6px 0;cursor:pointer;border-top:1px solid var(--bd)}
+label:first-of-type{border-top:0}
+input{width:18px;height:18px;margin-top:3px;accent-color:var(--ac);flex:none}
+input:checked+span{color:var(--mut);text-decoration:line-through}
+.note{color:var(--mut);font-size:.82rem;margin:16px 0}
+</style>
+</head>
+<body>
+<main>
+<h1>Java AI Developer Roadmap</h1>
+<p class="sub">Beginner to job ready, about 12 to 18 months. Your ticks save in this browser.</p>
+<div class="top">
+<div class="stat"><b id="pct">0%</b><span id="cnt"></span><button id="rst">Reset all</button></div>
+<div class="bar"><i id="fill"></i></div>
+</div>
+<div id="root"></div>
+<p class="note">Rule: write code for every topic. A topic is done when you can explain it and use it without a tutorial.</p>
+</main>
+<script>
+var P=[
+["Phase 0: Setup (Week 1)",[["","Install JDK 21 and IntelliJ IDEA|Install Git and create a GitHub account|Terminal basics (cd, ls, grep, pipes)|Run Hello World from IDE and with javac/java|Learn to read stack traces and errors|Commit code to GitHub every day you code"]]],
+["Phase 1: Java Fundamentals (Weeks 2-6)",[["Basics","Variables, data types, casting, operators|Scanner input and printf output|Strings, StringBuilder, text blocks, var|if, switch, all loop types|Arrays and 2D arrays|Methods, overloading, varargs|Recursion|Wrapper classes and autoboxing"],["Practice","Solve 30 beginner problems|Build a console calculator|Build a number guessing game|Build a console to-do list"]]],
+["Phase 2: OOP (Weeks 7-10)",[["","Classes, objects, constructors|this, static, final|Access modifiers and encapsulation|Inheritance and overriding|Polymorphism|Abstract classes vs interfaces|Inner classes and enums|Records and sealed classes|equals, hashCode, toString|Composition vs inheritance|SOLID principles|UML class diagrams|Project: Library Management System|Project: Bank Account System"]]],
+["Phase 3: Core Java APIs (Weeks 11-16)",[["Exceptions","try/catch/finally, try-with-resources|Checked vs unchecked, custom exceptions"],["Collections","List, Set, Map, Queue, Deque|ArrayList vs LinkedList|How HashMap works internally|Comparable vs Comparator|Generics and wildcards|Immutable collections"],["Functional Java","Lambdas and functional interfaces|Method references|Streams and Collectors|Optional"],["I/O and Time","java.nio Files, CSV and JSON files|Date and time API|Regular expressions"],["Concurrency","Threads, synchronized, volatile|Race conditions and deadlocks|ExecutorService and thread pools|CompletableFuture|Locks and atomics|Virtual threads (Java 21)"],["JVM","Stack vs heap|Garbage collection basics|OutOfMemoryError and leaks|Use a profiler once"],["Projects","Expense tracker saving to a file|Multi-threaded page downloader"]]],
+["Phase 4: DSA (Weeks 8-30, in parallel)",[["","Big O time and space complexity|Arrays and strings|Two pointers and sliding window|Hashing problems|Linked lists|Stacks and queues|Recursion and backtracking|Sorting and binary search|Trees and BST|Heaps|Graphs (BFS, DFS)|Dynamic programming basics|Greedy algorithms|Tries|Solve 150+ problems total"]]],
+["Phase 5: Developer Tools (Weeks 14-20)",[["","Git: branch, merge, rebase, stash|GitHub pull requests and issues|Maven and Gradle basics|Linux basics, ssh, curl|JUnit 5|Mockito|TDD basics|SLF4J and Logback|Debugging with breakpoints|Clean code and refactoring|Static analysis (SonarLint, SpotBugs)"]]],
+["Phase 6: Databases (Weeks 16-24)",[["SQL","CRUD and joins|GROUP BY, subqueries, CTEs, window functions|Normalization|Indexes and EXPLAIN|Transactions and ACID|Install PostgreSQL and a GUI client"],["Java and DBs","JDBC and PreparedStatement|SQL injection|HikariCP pooling|JPA and Hibernate relationships|The N+1 problem|Flyway migrations|Redis caching|MongoDB overview|Project: JDBC student management app"]]],
+["Phase 7: Spring Boot Backend (Weeks 20-34)",[["Web foundations","HTTP methods, status codes, headers|REST API design|JSON and Jackson|Test with Postman or curl"],["Spring core","IoC, DI and beans|Profiles and configuration"],["Spring Boot","Controllers, services, repositories|DTOs and validation|Global exception handling|Spring Data JPA and pagination|@Transactional and its pitfalls|Actuator|OpenAPI and Swagger|RestClient or WebClient|File upload and download|Scheduling and async|CORS"],["Security","Spring Security filter chain|BCrypt password hashing|JWT and refresh tokens|OAuth2 login|Role-based access control|OWASP Top 10|Secrets in environment variables"],["Testing","@SpringBootTest, @WebMvcTest, @DataJpaTest|Testcontainers"],["Projects","REST API with JWT auth|E-commerce backend|Deploy one with a public URL"]]],
+["Phase 8: Frontend Basics (Weeks 28-34, optional)",[["","HTML and CSS (flexbox, grid)|JavaScript ES6, async/await, fetch|React basics (props, state, hooks, routing)|Connect React to your Spring API|Handle auth tokens in the frontend|Build a simple chat UI"]]],
+["Phase 9: DevOps (Weeks 30-38)",[["","Docker images and containers|Multi-stage Dockerfile for Spring Boot|Docker Compose (app, Postgres, Redis)|CI/CD with GitHub Actions|Deploy to Render, Railway or a VPS|AWS or GCP basics|Dev, staging and prod configuration|Nginx and HTTPS|Micrometer, Prometheus, Grafana|Kubernetes overview"]]],
+["Phase 10: Architecture (Weeks 34-44)",[["","Design patterns (Factory, Builder, Strategy, Observer)|Clean and hexagonal architecture|Monolith vs microservices|API gateway and service discovery|gRPC|Kafka or RabbitMQ basics|Caching strategies|Load balancing and rate limiting|Resilience4j circuit breaker|CAP theorem and eventual consistency|Idempotency|System design practice (URL shortener, chat app)|Project: split an app into two services"]]],
+["Phase 11: AI Foundations (Weeks 36-48)",[["Math intuition","Vectors, matrices, dot product|Probability and statistics basics|Gradient descent intuition|Cosine similarity"],["Python (practical)","Python basics|NumPy and Pandas|Jupyter notebooks"],["Machine learning","Supervised, unsupervised, reinforcement|Train, validation, test sets and overfitting|Regression and classification|Precision, recall, F1|Train one scikit-learn model end to end"],["Deep learning","Neurons, layers, backprop (intuition)|CNN and RNN overview|Transformers and attention|Fine-tuning vs prompting"]]],
+["Phase 12: LLM and GenAI Concepts (Weeks 44-52)",[["","How LLMs generate text, tokens, context windows|Temperature, top-p, max tokens|Hallucinations|Model trade-offs, open vs hosted|Prompt engineering and system prompts|Structured JSON output|Embeddings and semantic search|Vector databases (pgvector, Qdrant)|Chunking strategies|The full RAG pipeline|Tool and function calling|Agents|Model Context Protocol (MCP)|Multimodal models|Guardrails and safety|Prompt injection risks|Evaluating LLM apps|Cost and latency optimization"]]],
+["Phase 13: AI in Java (Weeks 48-64)",[["Direct API calls","Store an API key safely|Call an LLM with Java HttpClient|Use a Java SDK|Streaming (server-sent events)|Errors, rate limits, retries|Manage conversation history"],["Spring AI","ChatClient and prompt templates|Structured output into records|Chat memory|Embeddings and VectorStore|RAG advisors|Tool calling"],["LangChain4j","AI Services|Memory and tools|Document loaders and RAG|Choose one as your main framework"],["Local models","Ollama from Java|ONNX Runtime and DJL|Overview of DL4J and Tribuo"],["AI infrastructure","pgvector similarity queries|PDF and web ingestion pipeline|Background embedding jobs|Cache and rate-limit LLM calls|Build an MCP server or client"],["Production AI","Evaluation suite for your RAG app|Log prompts, tokens and cost|Input and output guardrails|Defend against prompt injection|Fallback models|Per-user quotas and privacy"]]],
+["Phase 14: Portfolio Projects (Weeks 40-70)",[["","Project 1: deployed REST backend (auth, DB, Docker, CI/CD)|Project 2: AI chatbot with memory and streaming|Project 3: RAG chat-with-documents with citations|Project 4: AI agent with tool calling|Stretch: SaaS app with React and usage limits|Each project: README, diagram, demo link, tests|Write a post about each project|Pin your best 4 repos on GitHub"]]],
+["Phase 15: Job Readiness (Weeks 60-80)",[["Interview prep","Java core questions|Spring Boot questions|SQL questions|Timed DSA practice|System design basics|AI, RAG and LLM questions|Explain every decision in your projects|STAR answers and a 60-second intro|Mock interviews"],["Resume and profile","One-page ATS-friendly resume|LinkedIn with keywords|GitHub profile README|Portfolio site"],["Job search","List 50 target companies|Apply on LinkedIn, Naukri, Wellfound, remote boards|Message engineers and recruiters|Two open-source contributions|Track applications in a sheet|Prepare for take-homes and live coding|Salary negotiation basics"],["Freelancing (parallel)","Pick a niche (AI chatbots, RAG, backend APIs)|Define service packages and pricing|Create freelance profiles|Learn proposals, contracts, invoices|Collect testimonials"]]],
+["Phase 16: Milestones and Habits",[["Milestones","Month 2: write a console app without a tutorial|Month 4: build a multi-class OOP app with streams|Month 6: build and test a REST API with a DB|Month 8: deployed, authenticated, Dockerized app|Month 11: explain LLMs, embeddings and RAG clearly|Month 13: working RAG chatbot in Java|Month 15: 4 projects, polished resume, applying|Month 18: interviewing and iterating"],["Habits","Code every day, even 30 minutes|Build something small after every topic|Keep tutorials under 30 percent of your time|Use AI to explain and review, but type the code yourself|Review this checklist every Sunday|Share progress publicly"]]]
+];
+var KEY="jr-v1",S={};
+try{S=JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){S={}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+var root=document.getElementById("root"),total=0,ds=[];
+P.forEach(function(p,i){
+var d=document.createElement("details"),sm=document.createElement("summary"),t=document.createElement("div"),c=document.createElement("span"),n=0,boxes=[];
+t.textContent=p[0];sm.appendChild(t);sm.appendChild(c);d.appendChild(sm);
+p[1].forEach(function(s,j){
+var w=document.createElement("div");w.className="sec";
+if(s[0]){var h=document.createElement("h3");h.textContent=s[0];w.appendChild(h)}
+s[1].split("|").forEach(function(it,k){
+var id=i+"."+j+"."+k,l=document.createElement("label"),cb=document.createElement("input"),sp=document.createElement("span");
+cb.type="checkbox";cb.checked=!!S[id];sp.textContent=it;
+cb.onchange=function(){if(cb.checked)S[id]=1;else delete S[id];save();upd()};
+l.appendChild(cb);l.appendChild(sp);w.appendChild(l);boxes.push(cb);n++;total++});
+d.appendChild(w)});
+d.o={c:c,b:boxes,d:d};ds.push(d.o);root.appendChild(d)});
+function upd(){
+var done=0;
+ds.forEach(function(o){var k=o.b.filter(function(x){return x.checked}).length;done+=k;o.c.textContent=k+" / "+o.b.length;o.d.className=k===o.b.length?"done":""});
+var pc=Math.round(done/total*100);
+document.getElementById("pct").textContent=pc+"%";
+document.getElementById("cnt").textContent=done+" of "+total+" done";
+document.getElementById("fill").style.width=pc+"%"}
+var r=document.getElementById("rst"),armed=false;
+r.onclick=function(){
+if(!armed){armed=true;r.textContent="Tap again to confirm";setTimeout(function(){armed=false;r.textContent="Reset all"},3000);return}
+S={};save();ds.forEach(function(o){o.b.forEach(function(x){x.checked=false})});armed=false;r.textContent="Reset all";upd()};
+ds[0].d.open=true;upd();
+</script>
+</body>
+</html>
